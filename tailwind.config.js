@@ -8,6 +8,12 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  daisyui: {
+    themes: ["light", "dark", "nord"],
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+    require("daisyui")
+  ],
 }
 
