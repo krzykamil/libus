@@ -8,5 +8,8 @@
   "dependencies": {
     "hanami-assets": "^2.1.0-rc.2",
     "htmx.org": "^1.9.9"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
   }
 }
