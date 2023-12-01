@@ -3,7 +3,7 @@
 module Main
   module Views
     module Home
-      class Clicked < Main::View
+      class ReadMore < Main::View
         config.layout = nil
       end
     end

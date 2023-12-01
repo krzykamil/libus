@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const themeController = document.querySelector('.theme-controller');
     const htmlTag = document.documentElement;
 
-    console.log(themeController)
     function toggleTheme() {
         if (themeController.checked) {
             htmlTag.setAttribute('data-theme', 'nord');

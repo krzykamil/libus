@@ -3,7 +3,7 @@
 module Main
   module Actions
     module Home
-      class Clicked < Main::Action
+      class ReadMore < Main::Action
         def handle(*, response)
           response.render(view)
         end

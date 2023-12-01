@@ -4,6 +4,6 @@ module Main
   class Routes < Hanami::Routes
     root to: 'home.show'
 
-    post '/clicked', to: 'home.clicked'
+    get '/read_more', to: 'home.read_more'
   end
 end

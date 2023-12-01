@@ -30,6 +30,6 @@
   font-family: "Noto-Sans", sans-serif;
 }
 :root {
-    --my-color: #fff;
+    --my-color: var(--fallback-bc,oklch(var(--bc)/1));
     /* or any other variables/style */
 }
