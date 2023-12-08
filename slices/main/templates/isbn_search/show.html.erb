@@ -1,0 +1,15 @@
+<div hx-trigger="done" hx-get="/search/isbn" hx-swap="outerHTML" hx-target="this">
+  <h3 role="status" id="pblabel" tabindex="-1" autofocus>Searching</h3>
+
+  <div
+    hx-get="/search/progress"
+    hx-trigger="every 2000ms"
+    hx-target="this"
+    hx-swap="innerHTML">
+
+    <div class="w-64 h-5 mb-5 overflow-hidden bg-base-100 rounded-md shadow-inner" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="122" aria-labelledby="pblabel">
+      <div id="pb" class="float-left h-full text-white text-center bg-accent transition-width duration-2000" style="width:0%"></div>
+    </div>
+  </div>
+</div>
+

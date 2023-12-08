@@ -6,7 +6,14 @@ module.exports = {
   "./slices/main/templates/**/*",
   ],
   theme: {
-    extend: {},
+    extend: {
+      transitionProperty: {
+        'width': 'width'
+      },
+      transitionDuration: {
+        '2000': '2000ms',
+      }
+    }
   },
   daisyui: {
     themes: ["light", "dark", "nord"],
