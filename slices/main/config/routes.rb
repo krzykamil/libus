@@ -9,6 +9,7 @@ module Main
     get '/login', to: 'login.new'
 
     scope 'search' do
+      use Libus::HandleDownloads
       get '/isbn', to: 'isbn_search.show'
       get '/progress', to: 'search_progress.show'
     end

@@ -10,8 +10,11 @@ gem "hanami-view", "~> 2.1.0.rc"
 gem "hanami-assets", "~> 2.1.0.rc"
 
 gem "dry-types", "~> 1.0", ">= 1.6.1"
+gem "dry-effects"
+gem "dry-struct"
 gem "puma"
 gem "rake"
+gem "sidekiq"
 
 group :development do
   gem "hanami-webconsole", "~> 2.1.0.rc"
@@ -20,6 +23,7 @@ end
 
 group :development, :test do
   gem "dotenv"
+  gem "pry"
 end
 
 group :cli, :development do

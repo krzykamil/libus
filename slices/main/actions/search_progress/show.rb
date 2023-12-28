@@ -5,6 +5,7 @@ module Main
     module SearchProgress
       class Show < Main::Action
         def handle(request, response)
+          response.render(view)
         end
       end
     end
