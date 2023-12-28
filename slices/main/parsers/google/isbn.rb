@@ -20,7 +20,7 @@ module Main
             output[:language] = item['language']
             output[:isbn_numbers] = item['industryIdentifiers']
           else
-            raise StandardError 'Ambigious match'
+            puts "HALO KURA #{json}"
           end
           output
         end

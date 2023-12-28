@@ -13,12 +13,15 @@ module Main
 
       def perform(isbn)
         # Update step 1 of process
-        redis.hsetnx("isbn_search_user_1", "progress", 1)
+        redis.hset("isbn_search", { "user_1_progress" => 1 })
         output = parser.parse(
           json: get_google_isbn.call(isbn:)
         )
-        redis.hincrby("isbn_search_user_1", "progress", 1)
+        redis.hset("isbn_search", { "user_1_progress" => 2 })
         # Update step 2 of process
+        sleep 4
+        redis.hset("isbn_search", { "user_1_progress" => 3 })
+
         # Then send output to a persister
         # Update step 3 of process
       end
