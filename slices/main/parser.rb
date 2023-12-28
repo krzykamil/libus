@@ -7,8 +7,7 @@ require 'dry-types'
 module Main
   class Parser
 
-    attr_accessor :json
-    attr_writer :output
+    attr_accessor :json, :output
 
     def initialize
       @json = nil

@@ -4,6 +4,6 @@ module Libus
   class Settings < Hanami::Settings
     # Define your app settings here, for example:
     #
-    # setting :my_flag, default: false, constructor: Types::Params::Bool
+    setting :redis_url, default: "redis://localhost:6379", constructor: Types::String
   end
 end

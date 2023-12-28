@@ -14,6 +14,7 @@ gem "dry-effects"
 gem "dry-struct"
 gem "puma"
 gem "rake"
+gem "redis"
 gem "sidekiq"
 
 group :development do
