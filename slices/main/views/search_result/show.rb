@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
-require 'pry'
-
 module Main
   module Views
     module SearchResult
       class Show < Main::View
         config.layout = nil
 
-        private
-
+        expose :book do |book_found:|
+          puts book_found
+        end
       end
     end
   end

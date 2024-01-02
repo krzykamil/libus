@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rspec'
-
 RSpec.describe Main::Services::GetGoogleIsbn do
   subject(:service) { described_class.new.(isbn:) }
 

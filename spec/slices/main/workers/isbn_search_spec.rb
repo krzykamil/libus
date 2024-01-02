@@ -2,7 +2,7 @@
 
 require 'rspec'
 
-RSpec.describe Main::Workers::IsbnSearch do
+RSpec.describe Main::Workers::IsbnSearch, :db do
   context 'when called' do
     let(:google_isbn_service) { double(Main::Services::GetGoogleIsbn) }
     let(:parser) { double(Main::Services::GetGoogleIsbn) }

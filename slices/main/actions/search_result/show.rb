@@ -7,7 +7,7 @@ module Main
         include Deps["repositories.books"]
 
         def handle(request, response)
-          response.render(view, book: books.by_isbn(type: request.params[:type].to_i, identifier: request.params[:identifier]))
+          response.render(view, book_found: books.by_isbn(type: request.params[:isbn][:type].to_i, identifier: request.params[:isbn][:identifier]))
         end
       end
     end
