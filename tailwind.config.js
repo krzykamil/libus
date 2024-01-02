@@ -5,6 +5,13 @@ module.exports = {
   "./slices/main/views/**/*.rb",
   "./slices/main/templates/**/*",
   ],
+  safelist: [
+    'card',
+    'card-body',
+    'card-title',
+    'card-actions',
+    'card-side'
+  ],
   theme: {
     extend: {
       transitionProperty: {

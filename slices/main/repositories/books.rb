@@ -7,13 +7,11 @@ module Main
 
       def by_isbn(type:, identifier:)
         if type == 10
-          books.where(isbn_10: identifier).one
+          books.where(isbn_10: identifier).first
         else
-          books.where(isbn_13: identifier).one
+          books.where(isbn_13: identifier).first
         end
       end
-
-
     end
   end
 end

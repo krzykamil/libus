@@ -6,8 +6,8 @@ module Main
       class Show < Main::View
         config.layout = nil
 
-        expose :book do |book_found:|
-          puts book_found
+        expose :book, decorate: false do |book_found:|
+          book_found
         end
       end
     end
