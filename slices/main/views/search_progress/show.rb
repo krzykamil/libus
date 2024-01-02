@@ -8,12 +8,14 @@ module Main
       class Show < Main::View
         config.layout = nil
         include Deps["redis"]
-        expose :search_progress
+        expose :search_progress, decorate: false do |isbn:|
+          search_progress(isbn: isbn)
+        end
 
         private
 
-        def search_progress
-          progress = redis.hget("isbn_search", "user_1_progress")
+        def search_progress(isbn:)
+          progress = redis.hget("isbn_search", isbn[:identifier])
           case progress.to_i
           when 1
             40

@@ -11,6 +11,7 @@ module Main
     scope 'search' do
       get '/isbn', to: 'isbn_search.show'
       get '/progress', to: 'search_progress.show'
+      get '/result', to: 'search_result.show'
     end
   end
 end

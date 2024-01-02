@@ -5,5 +5,6 @@ module Libus
     # Define your app settings here, for example:
     #
     setting :redis_url, default: "redis://localhost:6379", constructor: Types::String
+    setting :database_url, constructor: Types::String
   end
 end

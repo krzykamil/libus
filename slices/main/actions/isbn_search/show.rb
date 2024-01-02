@@ -15,7 +15,7 @@ module Main
         def handle(request, response)
           halt 422, {errors: request.params.errors}.to_json unless request.params.valid?
           Main::Workers::IsbnSearch.perform_async(request.params[:isbn])
-          response.render(view)
+          response.render(view, isbn: request.params[:isbn])
         end
       end
     end

@@ -1,8 +1,17 @@
-<div hx-trigger="done" hx-get="/search/isbn" hx-swap="outerHTML" hx-target="this">
+<input hidden id="isbn-type" name="isbn[type]" value="<%= isbn[:type] %>">
+<input hidden id="isbn-identifier" name="isbn[identifier]" value="<%= isbn[:identifier] %>">
+
+<div
+    hx-trigger="done"
+    hx-get="/search/result"
+    hx-include="#isbn-type, #isbn-identifier"
+    hx-swap="outerHTML"
+    hx-target="this">
   <h3 role="status" id="pblabel" tabindex="-1" autofocus>Searching</h3>
 
   <div
     hx-get="/search/progress"
+    hx-include="#isbn-type, #isbn-identifier"
     hx-trigger="every 2000ms"
     hx-target="this"
     hx-swap="innerHTML">
@@ -12,4 +21,3 @@
     </div>
   </div>
 </div>
-

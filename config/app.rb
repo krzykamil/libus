@@ -4,6 +4,6 @@ require "hanami"
 
 module Libus
   class App < Hanami::App
-    config.shared_app_component_keys += ["redis"]
+    config.shared_app_component_keys += ["redis", "db", "persistence.rom"]
   end
 end

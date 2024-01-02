@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
+require 'pry'
+
 module Main
   module Views
-    module IsbnSearch
+    module SearchResult
       class Show < Main::View
         config.layout = nil
 
-        expose :isbn do |isbn:|
-          { type: isbn.size, identifier: isbn }
-        end
+        private
+
       end
     end
   end

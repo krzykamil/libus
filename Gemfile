@@ -16,6 +16,9 @@ gem "puma"
 gem "rake"
 gem "redis"
 gem "sidekiq"
+gem "rom", "~> 5.3"
+gem "rom-sql", "~> 3.6"
+gem "pg"
 
 group :development do
   gem "hanami-webconsole", "~> 2.1.0.rc"
@@ -38,4 +41,5 @@ end
 group :test do
   gem "capybara"
   gem "rack-test"
+  gem "database_cleaner-sequel"
 end
