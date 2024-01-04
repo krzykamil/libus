@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'net/http'
 
 module Main
   module Services
@@ -6,7 +7,7 @@ module Main
       def call(isbn:)
         # we can validate the isbn to be isbn 10 or 13 maybe
         uri = URI("https://www.googleapis.com/books/v1/volumes?q=isbn:#{isbn}")
-        Net::HTTP.get_response(uri).body
+        ::Net::HTTP.get_response(uri).body
       end
     end
   end

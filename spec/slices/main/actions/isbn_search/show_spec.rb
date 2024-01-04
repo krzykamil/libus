@@ -5,9 +5,13 @@ RSpec.describe Main::Actions::IsbnSearch::Show do
 
   context "with good params"  do
     let(:params) { Hash[isbn: "978-0-306-40615-7"] }
+    let(:worker) { double(Main::Workers::IsbnSearch) }
     it "works" do
-      response = subject.call(params)
-      expect(response.status).to eq 200
+      Sidekiq::Testing.fake! do
+        response = subject.call(params)
+        allow(Main::Workers::IsbnSearch).to receive(:perform_async).with("978-0-306-40615-7").and_return(worker)
+        expect(response.status).to eq 200
+      end
     end
   end
 

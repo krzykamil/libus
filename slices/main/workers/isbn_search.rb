@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'net/http'
-
 module Main
   module Workers
     class IsbnSearch
@@ -15,13 +13,13 @@ module Main
 
       def perform(isbn)
         redis.hset("isbn_search", { isbn => 1 })
-        sleep 4
+        sleep 2
 
         output = parser.parse(
           json: get_google_isbn.call(isbn:)
         )
         redis.hset("isbn_search", { isbn => 2 })
-        sleep 4
+        sleep 2
 
         if books.by_isbn(type: 10, identifier: isbn) || books.by_isbn(type: 13, identifier: isbn)
           redis.hset("isbn_search", { isbn => 3 })
@@ -35,8 +33,8 @@ module Main
                                                          published_date: Date.new(output[:published_date].to_i),
                                                          category: output[:category],
                                                          language: output[:language],
-                                                         isbn_10: output[:isbn_numbers].first['identifier'],
-                                                         isbn_13: output[:isbn_numbers].last['identifier'],
+                                                         isbn_10: output[:isbn_numbers].select{|num| num["type"] == "ISBN_10" }.first['identifier'],
+                                                         isbn_13: output[:isbn_numbers].select{|num| num["type"] == "ISBN_13" }.first['identifier'],
                                                          author_id: author[:id]
                                                        }
             ).commit

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'dry/effects'
 require 'net/http'
-require 'pry'
 
 module Main
   module Actions
