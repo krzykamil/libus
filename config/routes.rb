@@ -5,5 +5,8 @@ module Libus
     # Add your routes here. See https://guides.hanamirb.org/routing/overview/ for details.
 
     slice :main, at: "/"
+
+    slice :auth, at: "/auth" do
+    end
   end
 end
