@@ -19,6 +19,8 @@ gem "sidekiq"
 gem "rom", "~> 5.3"
 gem "rom-sql", "~> 3.6"
 gem "pg"
+gem "rodauth"
+gem "bcrypt"
 
 group :development do
   gem "hanami-webconsole", "~> 2.1.0.rc"
