@@ -5,7 +5,6 @@ module Main
     root to: 'home.show'
 
     get '/read_more', to: 'home.read_more'
-
     # New user registration
     get '/register', to: 'register.new', as: :register
     post "/users", to: "users.create"
@@ -14,6 +13,8 @@ module Main
     get '/login', to: 'login.new', as: :login
     post "/sessions", to: "sessions.create"
     delete "/logout", to: "sessions.destroy"
+
+    get '/books', to: 'books.index'
 
     scope 'search' do
       get '/isbn', to: 'isbn_search.show'

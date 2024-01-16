@@ -1,0 +1,64 @@
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+    <tr>
+      <th>
+        <label>
+          <input type="checkbox" class="checkbox" />
+        </label>
+      </th>
+      <th>Base Data</th>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Author</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% books.each do |book| %>
+      <tr>
+        <th>
+          <label>
+            <input type="checkbox" class="checkbox" />
+          </label>
+        </th>
+        <td>
+          <div class="flex items-center gap-3">
+            <div class="avatar">
+              <div class="mask mask-squircle w-32 h-32">
+                <%= book.avatar(:sm)%>
+              </div>
+            </div>
+            <div>
+              <div class="font-bold"><%= book.title %></div>
+              <div class="text-sm opacity-50"><%= book.author.name %></div>
+            </div>
+          </div>
+        </td>
+        <td>
+          Zemlak, Daniel and Leannon
+          <br/>
+          <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
+        </td>
+        <td>Purple</td>
+        <th>
+          <button class="btn btn-ghost btn-xs">details</button>
+        </th>
+      </tr>
+    <% end %>
+
+    <!-- foot -->
+    <tfoot>
+    <tr>
+      <th></th>
+      <th>Base Data</th>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Author</th>
+      <th></th>
+    </tr>
+    </tfoot>
+
+  </table>
+</div>
