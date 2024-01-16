@@ -7,6 +7,7 @@ module Main
     get '/read_more', to: 'home.read_more'
     get '/register', to: 'register.new'
     get '/login', to: 'login.new'
+    get '/books', to: 'books.index'
 
     scope 'search' do
       get '/isbn', to: 'isbn_search.show'
