@@ -16,6 +16,11 @@ module Main
 
     get '/books', to: 'books.index'
 
+    get '/storage', to: 'storages.index'
+    scope 'storages' do
+      post '/uploads', to: 'storages.uploads.create'
+    end
+
     scope 'search' do
       get '/isbn', to: 'isbn_search.show'
       get '/progress', to: 'search_progress.show'

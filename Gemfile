@@ -23,6 +23,7 @@ gem "rom-sql"
 gem "pg"
 gem "warden"
 gem "bcrypt"
+gem "shrine", "~> 3.0"
 
 group :development do
   gem "hanami-webconsole", "~> 2.1"

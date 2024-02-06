@@ -23,6 +23,7 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
+    content_disposition (1.0.0)
     database_cleaner-core (2.0.1)
     database_cleaner-sequel (2.0.2)
       database_cleaner-core (~> 2.0.0)
@@ -30,6 +31,8 @@ GEM
     debug_inspector (1.2.0)
     diff-lcs (1.5.1)
     dotenv (3.1.0)
+    down (5.4.1)
+      addressable (~> 2.8)
     dry-auto_inject (1.0.1)
       dry-core (~> 1.0)
       zeitwerk (~> 2.6)
@@ -271,6 +274,9 @@ GEM
     sequel (5.79.0)
       bigdecimal
     shellany (0.0.1)
+    shrine (3.5.0)
+      content_disposition (~> 1.0)
+      down (~> 5.1)
     sidekiq (7.2.2)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
@@ -321,6 +327,7 @@ DEPENDENCIES
   rom
   rom-factory
   rom-sql
+  shrine (~> 3.0)
   sidekiq
   warden
 
