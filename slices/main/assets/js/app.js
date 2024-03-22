@@ -1,5 +1,5 @@
-import "../builds/tailwind.css";
 import "../css/app.css";
+import "../css/tailwind.css";
 import 'htmx.org';
 import './htmx.js';
 

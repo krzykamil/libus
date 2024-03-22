@@ -298,9 +298,9 @@ DEPENDENCIES
   rack-test
   rake
   redis
-  rom (~> 5.3)
+  rom
   rom-factory
-  rom-sql (~> 3.6)
+  rom-sql
   sidekiq
 
 RUBY VERSION

@@ -18,8 +18,8 @@ gem "puma"
 gem "rake"
 gem "redis"
 gem "sidekiq"
-gem "rom", "~> 5.3"
-gem "rom-sql", "~> 3.6"
+gem "rom"
+gem "rom-sql"
 gem "pg"
 
 group :development do
