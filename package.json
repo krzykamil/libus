@@ -6,7 +6,7 @@
     "assets": "node config/assets.js"
   },
   "dependencies": {
-    "hanami-assets": "^2.1.0",
+    "hanami-assets": "github:hanami/assets-js#allow-references-to-files-outside-js-css-dirs",
     "htmx.org": "^1.9.9"
   },
   "devDependencies": {
