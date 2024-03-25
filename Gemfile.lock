@@ -283,15 +283,15 @@ DEPENDENCIES
   dry-struct
   dry-types (~> 1.0, >= 1.6.1)
   guard-puma
-  hanami (~> 2.1.0)
-  hanami-assets (~> 2.1.0)
-  hanami-controller (~> 2.1.0)
-  hanami-reloader (~> 2.1.0)
-  hanami-router (~> 2.1.0)
-  hanami-rspec (~> 2.1.0)
-  hanami-validations (~> 2.1.0)
-  hanami-view (~> 2.1.0)
-  hanami-webconsole (~> 2.1.0)
+  hanami (~> 2.1)
+  hanami-assets (~> 2.1)
+  hanami-controller (~> 2.1)
+  hanami-reloader (~> 2.1)
+  hanami-router (~> 2.1)
+  hanami-rspec (~> 2.1)
+  hanami-validations (~> 2.1)
+  hanami-view (~> 2.1)
+  hanami-webconsole (~> 2.1)
   pg
   pry
   puma

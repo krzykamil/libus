@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Libus - Main</title>
+    <%= favicon_tag %>
     <%= stylesheet_tag "app" %>
   </head>
   <body>
@@ -40,6 +41,7 @@
         </div>
         <div>
           <%= yield %>
+          <%= javascript_tag "app" %>
         </div>
       </div>
       <div class="drawer-side">
