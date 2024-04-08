@@ -7,7 +7,6 @@ module Main
     module Home
       class Show < Main::Action
         def handle(request, response)
-          binding.pry
           response.render(view)
         end
       end

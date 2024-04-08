@@ -12,3 +12,4 @@ require_relative "support/features"
 require_relative "support/requests"
 require 'sidekiq/testing'
 Sidekiq::Testing.inline!
+

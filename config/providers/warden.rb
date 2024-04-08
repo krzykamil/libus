@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
 Hanami.app.register_provider(:warden) do
   prepare do
     require "warden"
