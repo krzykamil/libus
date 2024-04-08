@@ -10,7 +10,7 @@ module Libus
     private
 
     def authenticate_user!(request, _)
-      halt 401 unless request.env['warden'].authenticate(:password)
+      request.env['warden'].authenticate!
     end
   end
 end

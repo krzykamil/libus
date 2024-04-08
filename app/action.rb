@@ -4,6 +4,6 @@
 require "hanami/action"
 
 module Libus
-  class Action < AuthenticatedAction
+  class Action < Hanami::Action
   end
 end

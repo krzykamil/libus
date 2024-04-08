@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 
-require "pry"
 module Main
   module Actions
     module Home
-      class Show < Main::Action
+      class Show < Libus::AuthenticatedAction
         def handle(request, response)
           response.render(view)
         end
