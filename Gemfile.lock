@@ -269,6 +269,8 @@ GEM
     thor (1.3.1)
     tilt (2.3.0)
     transproc (1.1.1)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.13)
@@ -303,6 +305,7 @@ DEPENDENCIES
   rom-factory
   rom-sql
   sidekiq
+  warden
 
 RUBY VERSION
    ruby 3.2.2p53

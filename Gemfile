@@ -21,6 +21,7 @@ gem "sidekiq"
 gem "rom"
 gem "rom-sql"
 gem "pg"
+gem "warden"
 
 group :development do
   gem "hanami-webconsole", "~> 2.1"
