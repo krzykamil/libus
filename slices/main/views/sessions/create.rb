@@ -2,8 +2,8 @@
 
 module Main
   module Views
-    module Register
-      class New < Main::View
+    module Sessions
+      class Create < Main::View
       end
     end
   end

@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-
 module Main
   module Actions
-    module Home
-      class Show < Main::Action
+    module Sessions
+      class Create < Main::Action
         def handle(request, response)
-          response.render(view)
         end
       end
     end

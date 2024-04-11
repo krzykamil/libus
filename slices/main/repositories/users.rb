@@ -9,6 +9,10 @@ module Main
         users.where(conditions)
       end
 
+      def email_taken?(email)
+        users.exist?(email: email)
+      end
+
       def by_id(id)
         users.by_pk(id).one!
       end
