@@ -5,7 +5,11 @@ require "warden"
 
 module Libus
   class App < Hanami::App
-    config.middleware.use Rack::Session::Cookie, :secret => "WILLCHANGETOSECRET", :key => "libus.session"
+    config.actions.sessions = :cookie, {
+      key: "libus.session",
+      secret: settings.session_secret,
+      expire_after: 60*60*24*365
+    }
     config.middleware.use Warden::Manager do |manager|
       manager.default_strategies :password
       manager.failure_app =

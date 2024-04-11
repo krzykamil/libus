@@ -5,6 +5,7 @@ module Main
     module Login
       class New < Main::Action
         def handle(request, response)
+          response.render(view)
         end
       end
     end

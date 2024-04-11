@@ -2,22 +2,24 @@
   <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
     <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
       <h1 class="mb-8 text-3xl text-center">Log In</h1>
-      <input
-        type="text"
-        class="block border border-grey-light w-full p-3 rounded mb-4"
-        name="email"
-        placeholder="Email" />
+      <%= form_for :login, "/sessions", method: "post" do %>
+        <input
+          type="text"
+          class="block border border-grey-light w-full p-3 rounded mb-4"
+          name="email"
+          placeholder="Email" />
 
-      <input
-        type="password"
-        class="block border border-grey-light w-full p-3 rounded mb-4"
-        name="password"
-        placeholder="Password" />
+        <input
+          type="password"
+          class="block border border-grey-light w-full p-3 rounded mb-4"
+          name="password"
+          placeholder="Password" />
 
-      <button
-        type="submit"
-        class="btn btn-primary w-full"
-      >Log In</button>
+        <button
+          type="submit"
+          class="btn btn-primary w-full"
+        >Log In</button>
+      <% end %>
     </div>
 
     <div class="text-grey-dark mt-6">

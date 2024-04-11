@@ -13,6 +13,10 @@ module Main
         users.exist?(email: email)
       end
 
+      def by_email(email)
+        users.where(email: email).one
+      end
+
       def by_id(id)
         users.by_pk(id).one!
       end
