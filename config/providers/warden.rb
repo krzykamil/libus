@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'pry'
 Hanami.app.register_provider(:warden) do
   prepare do
     require "bcrypt"
@@ -10,12 +9,10 @@ Hanami.app.register_provider(:warden) do
     target.start(:persistence)
     Warden::Strategies.add(:password) do
       def valid?
-        binding.pry
         params['email'] || params['password']
       end
 
       def authenticate!
-        binding.pry
         user_repo = Main::Repositories::Users.new(Hanami.app["persistence.rom"])
         user = user_repo.by_email(params["email"])
         return success!(user) if user && user.password_hash == BCrypt::Engine.hash_secret(request.params["password"], user.password_salt)

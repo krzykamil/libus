@@ -2,7 +2,7 @@
 
 require "rack/test"
 
-RSpec.shared_context "Rack::Test" do
+ RSpec.shared_context "Rack::Test" do
   # Define the app for Rack::Test requests
   # We need to boot it first to go through the warden start block
   let(:app) do
