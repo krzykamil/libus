@@ -5,7 +5,7 @@ require 'net/http'
 module Main
   module Actions
     module IsbnSearch
-      class Show < Main::Action
+      class Show < Libus::Actions::AuthenticatedAction
         params do
           required(:isbn).filled(:string)
         end

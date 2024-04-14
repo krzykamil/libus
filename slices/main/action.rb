@@ -7,5 +7,11 @@ module Main
     def warden
       request.env['warden']
     end
+
+    def current_user
+      return nil unless request.env['warden']
+
+      request.env['warden'].user
+    end
   end
 end
