@@ -13,7 +13,7 @@ module Main
     # Session management
     get '/login', to: 'login.new'
     post "/sessions", to: "sessions.create"
-    delete "/sessions/:id", to: "sessions.destroy"
+    delete "/logout", to: "sessions.destroy"
 
     scope 'search' do
       get '/isbn', to: 'isbn_search.show'

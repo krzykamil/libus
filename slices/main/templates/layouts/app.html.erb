@@ -26,7 +26,15 @@
               <!-- Navbar menu content here -->
               <li class="justify-center"><a href="/">Home</a></li>
               <li class="justify-center"><a href="/register">Register</a></li>
-              <li class="justify-center"><a href="/login">Login</a></li>
+              <% if warden.user %>
+                <li class="justify-center">
+                  <%= form_for :logout, 'logout', method: :delete do %>
+                    <button type="submit">Logout</button>
+                  <% end %>
+                </li>
+              <% else %>
+                <li class="justify-center"><a href="/login">Login</a></li>
+              <% end %>
               <li class="justify-center">
                 <div>
                   <label class="swap swap-rotate">
