@@ -2,27 +2,35 @@
   <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
     <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
       <h1 class="mb-8 text-3xl text-center">Sign up</h1>
-      <input
-        type="text"
-        class="block border border-grey-light w-full p-3 rounded mb-4"
-        name="email"
-        placeholder="Email" />
+      <%= form_for :registration, "/users", method: "post" do %>
+        <input
+          type="text"
+          class="block border border-grey-light w-full p-3 rounded mb-4"
+          name="email"
+          placeholder="Email" />
 
-      <input
-        type="password"
-        class="block border border-grey-light w-full p-3 rounded mb-4"
-        name="password"
-        placeholder="Password" />
-      <input
-        type="password"
-        class="block border border-grey-light w-full p-3 rounded mb-4"
-        name="confirm_password"
-        placeholder="Confirm Password" />
+        <input
+          type="text"
+          class="block border border-grey-light w-full p-3 rounded mb-4"
+          name="name"
+          placeholder="Your display name in the system" />
 
-      <button
-        type="submit"
-        class="btn btn-primary w-full"
-      >Create Account</button>
+        <input
+          type="password"
+          class="block border border-grey-light w-full p-3 rounded mb-4"
+          name="password"
+          placeholder="Password" />
+        <input
+          type="password"
+          class="block border border-grey-light w-full p-3 rounded mb-4"
+          name="password_confirmation"
+          placeholder="Confirm Password" />
+
+        <button
+          type="submit"
+          class="btn btn-primary w-full"
+        >Create Account</button>
+      <% end %>
 
       <div class="text-center text-sm text-grey-dark mt-4">
         By signing up, you agree to the

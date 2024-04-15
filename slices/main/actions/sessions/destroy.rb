@@ -2,11 +2,11 @@
 
 module Main
   module Actions
-    module Home
-      class Show < Main::Action
+    module Sessions
+      class Destroy < Main::Action
         def handle(request, response)
-          current_user = request.env['warden'].user
-          response.render(view)
+          request.env['warden'].logout
+          response.redirect_to("/")
         end
       end
     end

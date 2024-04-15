@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
-module Main
+module Libus
   module Actions
-    module Home
+    module AuthFailure
       class Show < Main::Action
         def handle(request, response)
-          current_user = request.env['warden'].user
-          response.render(view)
+          response.body = "STRANGER DANGER"
+          response.status = 401
         end
       end
     end
   end
 end
+

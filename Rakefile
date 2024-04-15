@@ -10,7 +10,7 @@ namespace :tailwind do
       "npx",
       "tailwindcss",
       "--input", "slices/main/assets/css/tailwind.css",
-      "--output", "slices/main/assets/css/tailwind.css",
+      "--output", "slices/main/assets/builds/tailwind.css",
       "--minify"
     )
   end
@@ -21,7 +21,7 @@ namespace :tailwind do
       "npx",
       "tailwindcss",
       "--input", "slices/main/assets/css/tailwind.css",
-      "--output", "slices/main/assets/css/tailwind.css",
+      "--output", "slices/main/assets/builds/tailwind.css",
       "--minify",
       "--watch"
     )

@@ -2,8 +2,9 @@
 
 module Main
   module Views
-    module Register
-      class New < Main::View
+    class Scope < Hanami::View::Scope
+      def warden
+        request.env['warden']
       end
     end
   end

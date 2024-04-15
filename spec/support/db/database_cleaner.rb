@@ -11,7 +11,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation)
   end
 
-  config.around(:each, type: :database) do |example|
+  config.around(:each, type: :db) do |example|
     DatabaseCleaner.cleaning do
       example.run
     end

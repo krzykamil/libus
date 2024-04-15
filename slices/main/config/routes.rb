@@ -5,8 +5,15 @@ module Main
     root to: 'home.show'
 
     get '/read_more', to: 'home.read_more'
-    get '/register', to: 'register.new'
-    get '/login', to: 'login.new'
+
+    # New user registration
+    get '/register', to: 'register.new', as: :register
+    post "/users", to: "users.create"
+
+    # Session management
+    get '/login', to: 'login.new', as: :login
+    post "/sessions", to: "sessions.create"
+    delete "/logout", to: "sessions.destroy"
 
     scope 'search' do
       get '/isbn', to: 'isbn_search.show'
