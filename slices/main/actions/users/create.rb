@@ -18,18 +18,32 @@ module Main
 
         def handle(request, response)
           halt 422, {errors: request.params.errors}.to_json unless request.params.valid?
-          halt 422, { errors: "Password must match the confirmation" }.to_json unless request.params[:password] == request.params[:password_confirmation]
-          halt 422, { errors: "This email is already taken" }.to_json if users_repo.email_taken?(request.params[:email])
 
+          if request.params[:password] != request.params[:password_confirmation]
+            response.flash[:alert] = "Password must match the confirmation"
+            response.redirect_to routes.path(:register)
+          end
+          if users_repo.email_taken?(request.params[:email])
+            response.flash[:alert] = "This email is already taken"
+            response.redirect_to routes.path(:register)
+          end
 
           password_salt = BCrypt::Engine.generate_salt
           password_hash = BCrypt::Engine.hash_secret(request.params[:password], password_salt)
-          users_repo.create(
+          user = users_repo.create(
             name: request.params[:name],
             email: request.params[:email],
             password_hash: password_hash,
             password_salt: password_salt
           )
+
+          if user
+            request.env['warden'].set_user(user)
+            response.flash[:notice] = "Welcome to Libus #{user.name}!"
+            response.redirect(routes.path(:root))
+          else
+            response.flash.now[:alert] = "There was an error"
+          end
         end
       end
     end

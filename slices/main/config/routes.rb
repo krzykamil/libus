@@ -7,11 +7,11 @@ module Main
     get '/read_more', to: 'home.read_more'
 
     # New user registration
-    get '/register', to: 'register.new'
+    get '/register', to: 'register.new', as: :register
     post "/users", to: "users.create"
 
     # Session management
-    get '/login', to: 'login.new'
+    get '/login', to: 'login.new', as: :login
     post "/sessions", to: "sessions.create"
     delete "/logout", to: "sessions.destroy"
 
