@@ -3,14 +3,10 @@ module.exports = {
   content: [
   "./public/*.html",
   "./slices/main/views/**/*.rb",
-  "./slices/main/templates/**/*",
+  "./slices/main/templates/**/*.html.erb",
   ],
   safelist: [
-    'card',
-    'card-body',
-    'card-title',
-    'card-actions',
-    'card-side'
+    'avatar'
   ],
   theme: {
     extend: {
