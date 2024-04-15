@@ -1,5 +1,6 @@
 import "../css/app.css";
 import "../css/tailwind.css";
+import "../builds/tailwind.css";
 import 'htmx.org';
 import './htmx.js';
 
