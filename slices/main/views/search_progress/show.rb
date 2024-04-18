@@ -15,6 +15,8 @@ module Main
         def search_progress(isbn:)
           progress = redis.hget("isbn_search", isbn[:identifier])
           case progress.to_i
+          when 0
+            1
           when 1
             40
           when 2

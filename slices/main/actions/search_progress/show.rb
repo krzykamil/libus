@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'pry'
+
 module Main
   module Actions
     module SearchProgress
@@ -7,6 +9,7 @@ module Main
         include Deps["redis"]
         def handle(request, response)
           response.headers["HX-Trigger"] = "done" if redis.hget("isbn_search", request.params[:isbn][:identifier]).to_i == 3
+          response.headers["HX-Trigger"] = "notfound" if redis.hget("isbn_search", request.params[:isbn][:identifier]).to_i.zero?
           response.render(view, isbn: request.params[:isbn])
         end
       end

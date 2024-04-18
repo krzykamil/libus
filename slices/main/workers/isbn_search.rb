@@ -13,20 +13,22 @@ module Main
 
       def perform(isbn)
         redis.hset("isbn_search", { isbn => 1 })
-        sleep 2
 
         output = parser.parse(
           json: get_google_isbn.call(isbn:)
         )
+        if output == {} || output.nil?
+          redis.hset("isbn_search", { isbn => 0 })
+          return
+        end
         redis.hset("isbn_search", { isbn => 2 })
-        sleep 2
 
         if books.by_isbn(type: 10, identifier: isbn) || books.by_isbn(type: 13, identifier: isbn)
           redis.hset("isbn_search", { isbn => 3 })
         else
-          book = rom.relations[:books].transaction do
+          rom.relations[:books].transaction do
             author = rom.relations[:authors].changeset(:create, { name: output[:authors].join(', ') }).commit
-            new_book = rom.relations[:books].changeset(:create,
+            rom.relations[:books].changeset(:create,
                                                        { title: output[:title],
                                                          description: output[:description],
                                                          image_url: output[:image_url],

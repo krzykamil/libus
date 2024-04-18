@@ -30,20 +30,16 @@
                 <%= book.avatar(:sm)%>
               </div>
             </div>
-            <div>
-              <div class="font-bold"><%= book.title %></div>
-              <div class="text-sm opacity-50"><%= book.author.name %></div>
-            </div>
           </div>
         </td>
         <td>
-          Zemlak, Daniel and Leannon
-          <br/>
-          <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
+          <div class="font-bold"><%= book.title %></div>
         </td>
-        <td>Purple</td>
+        <td>
+          <div class="font-bold"><%= book.category %></div>
+        </td>
         <th>
-          <button class="btn btn-ghost btn-xs">details</button>
+          <div class="text-sm opacity-50"><%= book.author.name %></div>
         </th>
       </tr>
     <% end %>
@@ -52,7 +48,7 @@
     <tfoot>
     <tr>
       <th></th>
-      <th>Base Data</th>
+      <th>Cover</th>
       <th>Title</th>
       <th>Genre</th>
       <th>Author</th>
