@@ -15,6 +15,8 @@ module Main
     delete "/logout", to: "sessions.destroy"
 
     get '/books', to: 'books.index'
+    get '/books/:id/edit', to: 'books.edit'
+    patch '/books/:id', to: 'books.update'
 
     get '/storage', to: 'storages.index'
     scope 'storages' do

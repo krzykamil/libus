@@ -16,6 +16,10 @@ module Main
           books.where(isbn_13: identifier).first
         end
       end
+
+      def by_id(id)
+        books.by_pk(id).one!
+      end
     end
   end
 end

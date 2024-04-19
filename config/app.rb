@@ -20,5 +20,6 @@ module Libus
     end
     config.shared_app_component_keys += ["redis", "db", "persistence.rom", "shrine"]
     config.middleware.use Hanami::Middleware::BodyParser, :form
+    config.middleware.use Rack::MethodOverride
   end
 end
