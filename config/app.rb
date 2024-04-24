@@ -6,6 +6,8 @@ require "hanami/middleware/body_parser"
 
 module Libus
   class App < Hanami::App
+    config.middleware.use Rack::MethodOverride
+    config.logger.stream = StringIO.new
     config.actions.sessions = :cookie, {
       key: "libus.session",
       secret: settings.session_secret,
@@ -20,6 +22,6 @@ module Libus
     end
     config.shared_app_component_keys += ["redis", "db", "persistence.rom", "shrine"]
     config.middleware.use Hanami::Middleware::BodyParser, :form
-    config.middleware.use Rack::MethodOverride
+
   end
 end

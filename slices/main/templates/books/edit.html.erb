@@ -1,5 +1,5 @@
-<%= form_for book, "/books/#{id}", method: :patch do %>
-  <input name="book[image]" type="hidden" value="<%= book.image_data %>" />
-  <input name="book[image] "type="file" />
+<%= form_for "book", "/books/#{id}", method: :patch do |f| %>
+  <%= f.file_field "image", hidden: true, value: book.image_data %>
+  <%= f.file_field "image" %>
   <button class="btn btn-primary" type="submit">Submit</button>
 <% end %>
