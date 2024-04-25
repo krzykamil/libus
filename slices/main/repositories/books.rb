@@ -23,8 +23,11 @@ module Main
       end
 
       def image_attach(id, image)
-        binding.pry
-        books.by_pk(id).changeset(:update, image_data: image[:image_data]).commit
+        book = books.by_pk(id).one!
+        attacher = book.image_attacher
+        attacher.form_assign({"image" => image})
+        attacher.finalize
+        self.update(book.id, attacher.column_values)
       end
     end
   end

@@ -15,12 +15,7 @@ module Main
         def handle(request, response)
           halt 422, {errors: request.params.errors}.to_json unless request.params.valid?
 
-          book = books_repo.by_id(request.params[:id])
-          halt 404 unless book
-          attacher = book.image_attacher
-          attacher.form_assign({"image" => request.params[:book][:image][:tempfile]})
-          attacher.finalize
-          books_repo.update(book.id, attacher.column_values)
+          books_repo.image_attach(request.params[:id], request.params[:book][:image][:tempfile])
 
           response.redirect_to "/books"
         end
