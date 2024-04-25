@@ -2,7 +2,7 @@
 
 <% if book %>
   <div class="card lg:card-side bg-base-100 shadow-xl">
-    <figure class="w-1/2 h-1/2 max-w-96 max-h-96"><img src="<%= book.image_url.gsub("http", "https") %>" alt="Cover" /></figure>
+<!--    <figure class="w-1/2 h-1/2 max-w-96 max-h-96"><img src="<%#= book.image_url.gsub("http", "https") %>" alt="Cover" /></figure>-->
     <div class="card-body">
       <h2 class="card-title"><%= book.title %></h2>
       <p><%= book.description[0..500] %></p>

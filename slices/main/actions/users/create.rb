@@ -13,7 +13,6 @@ module Main
           required(:name).filled(:string)
           required(:password).filled(:string)
           required(:password_confirmation).filled(:string)
-
         end
 
         def handle(request, response)

@@ -24,7 +24,7 @@
           </label>
         </th>
         <td>
-          <div id="picture" class="flex">
+          <div id=<%="picture-#{book.id}" %> class="flex">
             <div class="avatar">
               <div class="mask mask-squircle w-32 h-32">
                 <%= book.avatar(:sm)%>
@@ -42,7 +42,14 @@
           <div class="text-sm opacity-50"><%= book.author.name %></div>
         </th>
         <th>
-          <button class="btn btn-sm btn-ghost" hx-get="/books/<%= book.id %>/edit" hx-target="#picture" hx-swap="innerHTML" hx-trigger="click">Edit</button>
+          <button
+            class="btn btn-sm btn-ghost"
+            hx-get="/books/<%= book.id %>/edit"
+            hx-target="<%="#picture-#{book.id}" %>"
+            hx-swap="innerHTML"
+            hx-trigger="click">
+            Edit
+          </button>
         </th>
       </tr>
     <% end %>

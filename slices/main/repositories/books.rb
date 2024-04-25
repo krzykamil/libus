@@ -3,7 +3,8 @@
 module Main
   module Repositories
     class Books < Main::Repo[:books]
-      commands :create
+      struct_namespace Main::Entities
+      commands :create, update: :by_pk, delete: :by_pk
 
       def listing
         books.combine(:authors).to_a
@@ -19,6 +20,11 @@ module Main
 
       def by_id(id)
         books.by_pk(id).one!
+      end
+
+      def image_attach(id, image)
+        binding.pry
+        books.by_pk(id).changeset(:update, image_data: image[:image_data]).commit
       end
     end
   end
