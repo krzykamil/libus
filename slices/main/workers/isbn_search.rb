@@ -31,7 +31,6 @@ module Main
             rom.relations[:books].changeset(:create,
                                                        { title: output[:title],
                                                          description: output[:description],
-                                                         # image_url: output[:image_url],
                                                          published_date: Date.new(output[:published_date].to_i),
                                                          category: output[:category],
                                                          language: output[:language],

@@ -8,7 +8,6 @@ RSpec.describe Main::Workers::IsbnSearch, :db do
     let(:parse_output) {
       { title: "Dune",
         description: "A nice SF book",
-        # image_url: "https://www.some.site",
         published_date: "1965",
         category: "SF",
         language: "en",
