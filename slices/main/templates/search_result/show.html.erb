@@ -1,10 +1,21 @@
-<div class="card lg:card-side bg-base-100 shadow-xl">
-  <figure class="w-1/2 h-1/2 max-w-96 max-h-96"><img src="<%= book.image_url.gsub("http", "https") %>" alt="Cover" /></figure>
-  <div class="card-body">
-    <h2 class="card-title"><%= book.title %></h2>
-    <p><%= book.description[0..500] %></p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">See more</button>
+
+
+<% if book %>
+  <div class="card lg:card-side bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title"><%= book.title %></h2>
+      <p><%= book.description[0..500] %></p>
+      <div class="card-actions justify-end">
+        <!-- TODO: -->
+        <button class="btn btn-primary">Add to your collection</button>
+      </div>
     </div>
   </div>
-</div>
+<% else %>
+  <div class="card lg:card-side bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">No book found</h2>
+      <p>Sorry, we couldn't find a book with that ISBN. Please try again.</p>
+    </div>
+  </div>
+<% end %>

@@ -12,6 +12,7 @@
       <!-- Navbar menu content here -->
       <li class="justify-center"><a href="/">Home</a></li>
       <li class="justify-center"><a href="/register">Register</a></li>
+      <li class="justify-center"><a href="/books">Books</a></li>
       <% if warden.user %>
         <li class="justify-center">
           <%= form_for :logout, 'logout', method: :delete do %>

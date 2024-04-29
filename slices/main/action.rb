@@ -13,5 +13,14 @@ module Main
 
       request.env['warden'].user
     end
+
+    private
+
+    def view_options(request, response)
+      options = {}
+      options[:layout] = nil if request.get_header("HTTP_HX_REQUEST") == "true"
+
+      {**super, **options}
+    end
   end
 end

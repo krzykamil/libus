@@ -9,6 +9,7 @@ module Libus
             belongs_to :author
           end
         end
+        auto_struct(true)
       end
     end
   end

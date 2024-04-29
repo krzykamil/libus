@@ -11,7 +11,6 @@ module Main
             output[:title] = item['title']
             output[:authors] = item['authors']
             output[:description] = item['description']
-            output[:image_url] = item['imageLinks']['thumbnail']
             output[:publisher] = item['publisher']
             output[:published_date] = item['publishedDate']
             output[:category] = item['category']
