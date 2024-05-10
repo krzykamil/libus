@@ -2,7 +2,7 @@
 
 module Main
   module Repositories
-    class Books < Main::Repo[:authors]
+    class Authors < Main::Repo[:authors]
       commands :create
     end
   end
