@@ -25,6 +25,14 @@ namespace :tailwind do
       "--minify",
       "--watch"
     )
+    system(
+      "npx",
+      "tailwindcss",
+      "--input", "slices/admin/assets/css/tailwind.css",
+      "--output", "slices/admin/assets/builds/tailwind.css",
+      "--minify",
+      "--watch"
+    )
   end
 end
 
