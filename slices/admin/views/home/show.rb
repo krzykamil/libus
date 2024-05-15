@@ -7,8 +7,8 @@ module Admin
       class Show < Admin::View
 
         # binding.pry
-        # model = [:authors, :books, :users]
-        model = Main::Repo.relation_reader.relations
+        model = [:authors, :books, :users]
+        # model = Main::Repo.relation_reader.relations
         expose :models do
           model
         end

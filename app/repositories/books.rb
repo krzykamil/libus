@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module Main
+module Libus
   module Repositories
-    class Books < Main::Repo[:books]
+    class Books < Libus::Repository[:books]
       struct_namespace Main::Entities
       commands :create, update: :by_pk, delete: :by_pk
 

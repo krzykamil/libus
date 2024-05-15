@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module Main
+module Libus
   module Repositories
-    class Users < Main::Repo[:users]
+    class Users < Libus::Repository[:users]
       commands :create, update: :by_pk, delete: :by_pk
 
       def query(conditions)
