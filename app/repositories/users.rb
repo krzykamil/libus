@@ -5,6 +5,10 @@ module Libus
     class Users < Libus::Repository[:users]
       commands :create, update: :by_pk, delete: :by_pk
 
+      def all
+        users.order(:name).to_a
+      end
+
       def query(conditions)
         users.where(conditions)
       end

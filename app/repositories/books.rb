@@ -3,7 +3,7 @@
 module Libus
   module Repositories
     class Books < Libus::Repository[:books]
-      struct_namespace Main::Entities
+      struct_namespace Libus::Entities
       commands :create, update: :by_pk, delete: :by_pk
 
       def listing

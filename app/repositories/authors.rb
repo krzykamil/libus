@@ -3,7 +3,7 @@
 module Libus
   module Repositories
     class Authors < Libus::Repository[:authors]
-      commands :create
+      commands :create, update: :by_pk
 
       def all
         authors.order(:name).to_a

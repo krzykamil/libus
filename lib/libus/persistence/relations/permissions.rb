@@ -3,8 +3,8 @@
 module Libus
   module Persistence
     module Relations
-      class Users < ROM::Relation[:sql]
-        schema(:users, infer: true) do
+      class Permissions < ROM::Relation[:sql]
+        schema(:permissions, infer: true) do
           associations do
             has_many :roles
           end
