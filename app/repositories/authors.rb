@@ -8,6 +8,10 @@ module Libus
       def all
         authors.order(:name).to_a
       end
+
+      def by_name(name)
+        authors.where(name: name).to_a.first
+      end
     end
   end
 end

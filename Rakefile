@@ -4,8 +4,10 @@ require "hanami/rake_tasks"
 require "rom/sql/rake_task"
 require "bcrypt"
 require "hanami/setup"
-require "rom-repository"
-require "hanami/boot"
+if ARGV[0] == "db:seed"
+  require "rom-repository"
+  require "hanami/boot"
+end
 
 namespace :tailwind do
   desc "Compile your Tailwind CSS"
@@ -57,11 +59,27 @@ end
 #
 
 def create_roles
-  binding.pry
   roles_repo = Libus::App["repositories.roles"]
 
   roles_repo.create(name: "basic_user")
   roles_repo.create(name: "admin_user")
+end
+
+def create_authors
+  authors_repo = Libus::App["repositories.authors"]
+
+  authors_repo.create(name: "Ernest Hemingway")
+  authors_repo.create(name: "Adam Mickiewicz")
+end
+
+def create_books
+  books_repo = Libus::App["repositories.books"]
+  authors_repo = Libus::App["repositories.authors"]
+
+  author = authors_repo.by_name('Ernest Hemingway')
+  second_author = authors_repo.by_name('Adam Mickiewicz')
+  books_repo.create(title: "Stary czlowiek i morze", published_date: Time.now, author_id: author.id)
+  books_repo.create(title: "Grazyna", published_date: Time.now, author_id: second_author.id)
 end
 
 def create_users
@@ -83,8 +101,8 @@ def create_users
   password_salt = BCrypt::Engine.generate_salt
   password_hash = BCrypt::Engine.hash_secret("haslo123", password_salt)
   users_repo.create(
-    name: "adminik",
-    email: "admin@gmail.com",
+    name: "basic",
+    email: "basic_user@gmail.com",
     password_hash: password_hash,
     password_salt: password_salt,
     role_id: basic_user_role_repo.id
@@ -108,9 +126,11 @@ namespace :db do
   task :seed do
 
     create_roles
-    create_users
+    # create_users
     create_permissions
 
+    create_authors
+    create_books
     puts "Seeded roles, users and permissions"
   end
 end
