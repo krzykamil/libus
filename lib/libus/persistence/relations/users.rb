@@ -6,7 +6,7 @@ module Libus
       class Users < ROM::Relation[:sql]
         schema(:users, infer: true) do
           associations do
-            has_many :roles
+            belongs_to :role
           end
         end
       end

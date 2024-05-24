@@ -2,10 +2,9 @@
 
 module Admin
   module Actions
-    module Home
-      class Show < Admin::Action
+    module Login
+      class New < Admin::Action
         def handle(request, response)
-          # current_user = request.env['warden'].user
           response.render(view)
         end
       end

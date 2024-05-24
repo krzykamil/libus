@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module Main
+module Admin
   module Actions
     module Sessions
-      class Create < Main::Action
+      class Create < Admin::Action
         include Deps[container: "persistence.rom"]
 
         params do
@@ -16,12 +16,11 @@ module Main
 
           request.env['warden'].authenticate!
           user_repo = Libus::Repositories::Users.new(Hanami.app["persistence.rom"])
-
-          user = user_repo.basic_user_by_email?(request.params[:email])
+          user = user_repo.admin_by_email?(request.params[:email])
 
           if user && user.password_hash == BCrypt::Engine.hash_secret(request.params[:password], user.password_salt)
             request.session[:user_id] = user.id
-            response.redirect "/"
+            response.redirect "/admin"
           else
             halt 401, "Unauthorized"
           end

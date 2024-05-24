@@ -9,7 +9,8 @@ module Libus
         private
 
         def authenticate_user(request, response)
-          response.redirect_to("/login") unless request.env['warden'].user
+          request.env['warden'].user.
+          response.redirect_to("/admin/login") if !request.env['warden'].user && request.path != "/admin/login"
         end
       end
     end
