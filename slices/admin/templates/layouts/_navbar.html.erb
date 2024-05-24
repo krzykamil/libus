@@ -11,13 +11,10 @@
     <ul class="menu menu-horizontal">
       <!-- Navbar menu content here -->
       <li class="justify-center"><a href="/">Home</a></li>
-			<% unless warden.user %>
-				<li class="justify-center"><a href="/register">Register</a></li>
-			<% end %>
       <li class="justify-center"><a href="/books">Books</a></li>
       <% if warden.user %>
         <li class="justify-center">
-          <%= form_for :logout, 'logout', method: :delete do %>
+          <%= form_for :logout, 'admin/logout', method: :delete do %>
             <button type="submit">Logout</button>
           <% end %>
         </li>

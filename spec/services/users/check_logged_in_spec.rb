@@ -43,7 +43,7 @@ RSpec.describe Libus::Services::Users::CheckLoggedIn, :db, type: :service do
 
     it { is_expected.to be_success }
     it "will return success message" do
-      expect(result.success).to eq("Succesfully logged in")
+      expect(result.success).to eq("User is logged in")
     end
   end
 end

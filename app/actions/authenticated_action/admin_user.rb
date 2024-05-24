@@ -9,10 +9,15 @@ module Libus
         private
 
         def authenticate_user(request, response)
+          return if request.path == "/admin/login" || request.path == "/admin/sessions"
+
           admin_user_logged = Libus::Services::Users::CheckLoggedIn.new(user: request.env['warden'].user,
                                                                         user_type: :admin).call
 
-          response.redirect_to("/admin/login") if request.path != "/admin/login" && !admin_user_logged
+          if admin_user_logged.failure?
+            response.flash[:alert] = admin_user_logged.failure if admin_user_logged.failure?
+            response.redirect_to("/admin/login") if admin_user_logged.failure?
+          end
         end
       end
     end

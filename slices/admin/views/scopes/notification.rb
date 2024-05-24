@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module Main
+module Admin
   module Views
     module Scopes
-      class Notification < Main::Views::Scope
+      class Notification < Admin::Views::Scope
         def message
           return '' if hidden?
 

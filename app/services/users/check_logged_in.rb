@@ -24,7 +24,7 @@ module Libus
             return Failure("User is not basic user") if basic_user.nil?
           end
 
-          Success("Succesfully logged in")
+          Success("User is logged in")
         end
       end
     end

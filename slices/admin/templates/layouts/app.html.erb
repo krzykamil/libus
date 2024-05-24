@@ -11,7 +11,9 @@
 <div class="drawer base-300">
 	<input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
 	<div class="drawer-content flex flex-col">
-		<%= render :navbar %>
+		<% if request.path != "/admin/login" %>
+			<%= render :navbar %>
+		<% end %>
 		<div>
 			<%= flash_message %>
 			<%= yield %>
