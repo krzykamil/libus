@@ -10,11 +10,11 @@ module Libus
       end
 
       def admin_by_id?(user_id)
-        by_role("admin_user").where(id: user_id).to_a.first
+        by_role("admin_user").by_pk(user_id).to_a.first
       end
 
       def basic_user_by_id?(user_id)
-        by_role("basic_user").where(id: user_id).to_a.first
+        by_role("basic_user").by_pk(user_id).to_a.first
       end
 
       def admin_by_email?(email)

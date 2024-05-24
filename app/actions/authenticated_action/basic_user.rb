@@ -9,7 +9,10 @@ module Libus
         private
 
         def authenticate_user(request, response)
-          response.redirect_to("/login") unless request.env['warden'].user
+          basic_user_logged = Libus::Services::Users::CheckLoggedIn.new(user: request.env['warden'].user,
+                                                                        user_type: :basic_user).call
+
+          response.redirect_to("/login") unless basic_user_logged
         end
       end
     end

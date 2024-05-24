@@ -13,6 +13,7 @@ gem "hanami-assets", "~> 2.1"
 
 gem "dry-types", "~> 1.0", ">= 1.6.1"
 gem "dry-effects"
+gem 'dry-monads'
 gem "dry-struct"
 gem "puma"
 gem "rake"
