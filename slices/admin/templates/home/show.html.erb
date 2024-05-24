@@ -13,7 +13,7 @@
 	<h3>Models</h3>
 	<ul>
 		<% models.each do |model| %>
-			<li><a><%= model.to_s %></a></li>
+			<li><a href="/admin/models/<%= model %>"><%= model.to_s %></a></li>
 		<% end %>
 	</ul>
 </ul>

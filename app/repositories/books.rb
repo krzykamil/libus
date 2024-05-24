@@ -6,6 +6,10 @@ module Libus
       struct_namespace Libus::Entities
       commands :create, update: :by_pk, delete: :by_pk
 
+      def all
+        authors.order(:name).to_a
+      end
+
       def listing
         books.combine(:authors).to_a
       end

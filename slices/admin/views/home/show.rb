@@ -6,11 +6,13 @@ module Admin
     module Home
       class Show < Admin::View
 
+        persistence = Libus::App["persistence.rom"]
+        models = persistence.relations.to_a.map(&:first)
         # binding.pry
-        model = [:authors, :books, :users]
+        # model = [:authors, :books, :users]
         # model = Main::Repo.relation_reader.relations
         expose :models do
-          model
+          models
         end
       end
     end

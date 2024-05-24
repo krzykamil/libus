@@ -10,17 +10,12 @@
   <div class="flex-none hidden lg:block">
     <ul class="menu menu-horizontal">
       <!-- Navbar menu content here -->
-      <li class="justify-center"><a href="/">Home</a></li>
-      <li class="justify-center"><a href="/books">Books</a></li>
-      <% if warden.user %>
-        <li class="justify-center">
-          <%= form_for :logout, 'admin/logout', method: :delete do %>
-            <button type="submit">Logout</button>
-          <% end %>
-        </li>
-      <% else %>
-        <li class="justify-center"><a href="/login">Login</a></li>
-      <% end %>
+      <li class="justify-center"><a href="/admin">Home</a></li>
+			<li class="justify-center">
+				<%= form_for :logout, 'admin/logout', method: :delete do %>
+					<button type="submit">Logout</button>
+				<% end %>
+			</li>
       <li class="justify-center">
         <div>
           <label class="swap swap-rotate">

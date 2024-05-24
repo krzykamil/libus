@@ -6,6 +6,6 @@ module Admin
     get '/login', to: 'login.new', as: :login
     post "/sessions", to: "sessions.create"
     delete "/logout", to: "sessions.destroy"
-    # get "/authors", to: "authors#index"
+    get "/models/:name", to: "models.index"
   end
 end
