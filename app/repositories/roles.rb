@@ -12,6 +12,10 @@ module Libus
       def by_name(name)
         roles.where(name: name).first
       end
+
+      def by_id(id)
+        roles.by_pk(id).one!
+      end
     end
   end
 end

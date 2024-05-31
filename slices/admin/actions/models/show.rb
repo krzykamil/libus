@@ -2,10 +2,10 @@
 
 module Admin
   module Actions
-    module Authors
-      class Index < Admin::Action
+    module Models
+      class Show < Admin::Action
         def handle(request, response)
-          response.render(view)
+          response.render(view, model: request.params[:name], id: request.params[:id])
         end
       end
     end

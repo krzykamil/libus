@@ -10,6 +10,9 @@ module Admin
 
           repo.all
         end
+        expose :model_name do |model:|
+          model
+        end
       end
     end
   end

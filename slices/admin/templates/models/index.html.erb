@@ -1,8 +1,8 @@
 <ul class="menu bg-base-200 w-56 rounded-box">
-	<h3>Authors</h3>
+	<h3><%= model_name.capitalize %></h3>
 	<ul>
 		<% model_objects.each do |model| %>
-			<li><a href="/admin/models/<%= model.id %>"><%= model.name %></a></li>
+			<li><a href="/admin/models/<%= model_name %>/<%= model.id %>"><%= model.name %></a></li>
 		<% end %>
 	</ul>
 </ul>

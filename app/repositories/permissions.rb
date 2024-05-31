@@ -8,6 +8,10 @@ module Libus
       def all
         permissions.order(:name).to_a
       end
+
+      def by_id(id)
+        permissions.by_pk(id).one!
+      end
     end
   end
 end

@@ -7,5 +7,6 @@ module Admin
     post "/sessions", to: "sessions.create"
     delete "/logout", to: "sessions.destroy"
     get "/models/:name", to: "models.index"
+    get "/models/:name/:id", to: "models.show"
   end
 end
