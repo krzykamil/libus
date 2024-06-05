@@ -1,8 +1,16 @@
-<ul class="menu bg-base-200 w-56 rounded-box">
-	<h3><%= model_name.capitalize %></h3>
-	<ul>
-		<% model_objects.each do |model| %>
-			<li><a href="/admin/models/<%= model_name %>/<%= model.id %>"><%= model.name %></a></li>
-		<% end %>
+<div>
+	<div class="text-sm breadcrumbs">
+		<ul>
+			<li><a href="/admin">Models</a></li>
+			<li><a href="/admin/models/<%= model_name %>"><%= model_name.capitalize %></a></li>
+		</ul>
+	</div>
+	<ul class="menu bg-base-200 w-56 rounded-box">
+		<div></div>
+		<ul>
+			<% model_objects.each do |model| %>
+				<li><a href="/admin/models/<%= model_name %>/<%= model.id %>"><%= model.name %></a></li>
+			<% end %>
+		</ul>
 	</ul>
-</ul>
+</div>

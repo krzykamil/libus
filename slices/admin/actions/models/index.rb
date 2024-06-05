@@ -5,6 +5,7 @@ module Admin
     module Models
       class Index < Admin::Action
         def handle(request, response)
+
           response.render(view, model: request.params[:name])
         end
       end

@@ -8,5 +8,7 @@ module Admin
     delete "/logout", to: "sessions.destroy"
     get "/models/:name", to: "models.index"
     get "/models/:name/:id", to: "models.show"
+    get '/models/:name/:id/edit', to: 'models.edit'
+    patch '/models/:name/:id', to: 'models.update'
   end
 end

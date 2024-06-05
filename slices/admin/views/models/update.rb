@@ -3,12 +3,7 @@
 module Admin
   module Views
     module Models
-      class Index < Admin::View
-        expose :model_objects do |model:|
-          repo = Libus::App["repositories.#{model}"]
-
-          repo.all
-        end
+      class Update < Admin::View
         expose :model_name do |model:|
           model
         end

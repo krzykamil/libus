@@ -1,10 +1,12 @@
 # frozen_string_literal: true
-require "pry"
 
 module Admin
   module Views
     module Models
       class Show < Admin::View
+        expose :model do |model:|
+          model
+        end
         expose :attributes do |model:, id:|
           repo = Libus::App["repositories.#{model}"]
           model_object = repo.by_id(id)
@@ -14,6 +16,10 @@ module Admin
         expose :model_name do |model:, id:|
           repo = Libus::App["repositories.#{model}"]
           repo.by_id(id).name
+        end
+
+        expose :model_id do |model:, id:|
+          id
         end
       end
     end
