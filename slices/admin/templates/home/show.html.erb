@@ -1,0 +1,8 @@
+<ul class="menu bg-base-200 w-56 rounded-box">
+	<a href="/admin"><h3>Models</h3></a>
+	<ul>
+		<% models.each do |model| %>
+			<li><a href="/admin/models/<%= model %>"><%= model.to_s %></a></li>
+		<% end %>
+	</ul>
+</ul>

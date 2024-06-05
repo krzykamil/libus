@@ -1,0 +1,16 @@
+<ul class="menu bg-base-200 w-56 rounded-box">
+	<div hx-target="this" hx-swap="outerHTML">
+		<h3><%= model_name.capitalize %></h3>
+		<div class="flex justify-between">
+			<div>
+				<button class="btn bg-yellow-500 text-white" hx-get="/admin/models/<%= model %>/<%= model_id %>/edit">Edit</button>
+				<button class="btn bg-red-500 text-white">Delete</button>
+			</div>
+		</div>
+		<ul>
+			<% attributes.each do |key, value| %>
+				<li><span><b><%= key %>:</b><%= value %></span></li>
+			<% end %>
+		</ul>
+	</div>
+</ul>
