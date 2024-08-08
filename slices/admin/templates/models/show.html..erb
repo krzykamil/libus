@@ -1,16 +1,10 @@
-<ul class="menu bg-base-200 w-56 rounded-box">
-	<div hx-target="this" hx-swap="outerHTML">
-		<h3><%= model_name.capitalize %></h3>
-		<div class="flex justify-between">
-			<div>
-				<button class="btn bg-yellow-500 text-white" hx-get="/admin/models/<%= model %>/<%= model_id %>/edit">Edit</button>
-				<button class="btn bg-red-500 text-white">Delete</button>
-			</div>
-		</div>
+<div class="ml-60">
+	<div class="text-sm breadcrumbs">
 		<ul>
-			<% attributes.each do |key, value| %>
-				<li><span><b><%= key %>:</b><%= value %></span></li>
-			<% end %>
+			<li><a href="/admin" class="text-3xl">Models</a></li>
+			<li><a href="/admin/models/<%= model_name %>" class="text-3xl"><%= model_name.capitalize %></a></li>
+			<li><a href="/admin/models/<%= model_name %>/<%= model_id %>" class="text-3xl"><%= model_name_name.capitalize %></a></li>
 		</ul>
 	</div>
-</ul>
+	<%= render "model_details" %>
+</div>

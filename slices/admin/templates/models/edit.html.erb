@@ -1,16 +1,11 @@
-<form hx-patch="/admin/models/<%= model %>/<%= model_id %>" hx-target="this" hx-swap="outerHTML">
-	<div>
-		<label>First Name</label>
-		<input type="text" name="firstName" value="Joe">
-	</div>
-	<div class="form-group">
-		<label>Last Name</label>
-		<input type="text" name="lastName" value="Blow">
-	</div>
-	<div class="form-group">
-		<label>Email Address</label>
-		<input type="email" name="email" value="joe@blow.com">
-	</div>
+<form hx-patch="/admin/models/<%= model_name %>/<%= model_id %>" hx-target="this" hx-swap="outerHTML">
+	<% attributes.each do |key, value| %>
+		<label><%= key %></label>
+		<input type="text" name="<%= key %>" value="<%= value %>">
+		<br/>
+	<% end %>
+	<input type="hidden" name="_csrf_token" value="<%= csrf_token %>">
+
 	<button class="btn">Submit</button>
-	<button class="btn" hx-get="/contact/1">Cancel</button>
+	<button class="btn" hx-get="/admin/models/<%= model_name %>/<%= model_id %>/reload_show">Cancel</button>
 </form>

@@ -3,23 +3,26 @@
 module Admin
   module Views
     module Models
-      class Edit < Admin::View
-        expose :model_name do |model:|
+      class ReloadShow < Admin::View
+        expose :model do |model:|
           model
         end
-
-        # expose :model do |model:, id:|
-        #   repo = Libus::App["repositories.#{model}"]
-        #   repo.by_id(id)
-        # end
-
         expose :attributes do |model:, id:|
           repo = Libus::App["repositories.#{model}"]
           model_object = repo.by_id(id)
           model_object.attributes
         end
 
-        expose :model_id do |id:|
+        expose :model_name do |model:|
+          model
+        end
+
+        expose :model_name_name do |model:, id:|
+          repo = Libus::App["repositories.#{model}"]
+          repo.by_id(id).name
+        end
+
+        expose :model_id do |model:, id:|
           id
         end
       end

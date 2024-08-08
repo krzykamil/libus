@@ -13,7 +13,11 @@ module Admin
           model_object.attributes
         end
 
-        expose :model_name do |model:, id:|
+        expose :model_name do |model:|
+          model
+        end
+
+        expose :model_name_name do |model:, id:|
           repo = Libus::App["repositories.#{model}"]
           repo.by_id(id).name
         end

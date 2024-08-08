@@ -17,10 +17,10 @@ module Libus
           return Failure("User is not logged in") if user.nil?
 
           if user_type == :admin
-            admin_user = users_repo.admin_by_id?(user.id)
+            admin_user = users_repo.admin_by_id(user.id)
             return Failure("User is not admin") if admin_user.nil?
           elsif user_type == :basic_user
-            basic_user = users_repo.basic_user_by_id?(user.id)
+            basic_user = users_repo.basic_user_by_id(user.id)
             return Failure("User is not basic user") if basic_user.nil?
           end
 

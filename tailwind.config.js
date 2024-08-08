@@ -2,8 +2,10 @@
 module.exports = {
   content: [
   "./public/*.html",
+  "./slices/admin/views/**/*.rb",
   "./slices/main/views/**/*.rb",
   "./slices/main/templates/**/*.html.erb",
+  "./slices/admin/templates/**/*.html.erb"
   ],
   safelist: [
     'avatar'

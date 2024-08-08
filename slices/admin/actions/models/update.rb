@@ -5,6 +5,7 @@ module Admin
   module Actions
     module Models
       class Update < Admin::Action
+        self.template = :reload_show
         params do
           required(:id).filled(:integer)
           required(:first_name).filled(:string)
@@ -12,16 +13,9 @@ module Admin
         end
 
         def handle(request, response)
-          binding.pry
-          halt 422, {errors: request.params.errors}.to_json unless request.params.valid?
 
-          response.redirect_to("/admin/models/authors/4")
+          response.render(view, model: request.params[:name], id: request.params[:id])
         end
-
-        # def handle_invalid_csrf_token(*, res)
-        #   binding.pry
-        #   res.session.clear
-        # end
       end
     end
   end

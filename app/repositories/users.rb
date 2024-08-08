@@ -9,20 +9,12 @@ module Libus
         users.order(:name).to_a
       end
 
-      def admin_by_id?(user_id)
-        by_role("admin_user").by_pk(user_id).to_a.first
+      def admin_by_id(user_id)
+        by_role("admin_user").by_pk(user_id).one
       end
 
-      def basic_user_by_id?(user_id)
-        by_role("basic_user").by_pk(user_id).to_a.first
-      end
-
-      def admin_by_email?(email)
-        by_role("admin_user").where(email: email).to_a.first
-      end
-
-      def basic_user_by_email?(email)
-        by_role("basic_user").where(email: email).to_a.first
+      def basic_user_by_id(user_id)
+        by_role("basic_user").by_pk(user_id).one
       end
 
       def query(conditions)
@@ -38,15 +30,15 @@ module Libus
       end
 
       def admin_user_by_email(email)
-        binding.pry
-        users.combine(:roles).node(:role) {|role|
-          role.where(name: 'Project 1, Task 2')
-          }.to_a.first
-        # users.where(email: email).one
+        users.join(:roles)
+             .where(roles[:name] => 'admin_user', users[:email] => email)
+             .one
       end
 
       def basic_user_by_email(email)
-        users.where(email: email).one
+        users.join(:roles)
+             .where(roles[:name] => 'basic_user', users[:email] => email)
+             .one
       end
 
       def by_id(id)

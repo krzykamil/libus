@@ -1,0 +1,14 @@
+<div hx-target="this" hx-swap="outerHTML">
+	<div class="flex justify-between">
+		<div>
+			<button class="btn btn-accent" hx-get="/admin/models/<%= model %>/<%= model_id %>/edit">Edit</button>
+			<button class="btn btn-secondary">Delete</button>
+		</div>
+
+	</div>
+	<ul>
+		<% attributes.each do |key, value| %>
+			<li><span><b><%= key %>: </b><%= value %></span></li>
+		<% end %>
+	</ul>
+</div>

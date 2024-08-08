@@ -9,7 +9,7 @@ module Libus
         private
 
         def authenticate_user(request, response)
-          return if request.path == "/admin/login" || request.path == "/admin/sessions"
+          return if request.path == "/admin/login" || request.path == "/admin/sessions" || !request.get?
 
           admin_user_logged = Libus::Services::Users::CheckLoggedIn.new(user: request.env['warden'].user,
                                                                         user_type: :admin).call

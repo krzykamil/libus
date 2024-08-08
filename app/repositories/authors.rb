@@ -13,7 +13,7 @@ module Libus
         authors.by_pk(id).one!
       end
       def by_name(name)
-        authors.where(name: name).to_a.first
+        authors.where(name: name).one
       end
     end
   end

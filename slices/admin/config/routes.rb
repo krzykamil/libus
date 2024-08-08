@@ -10,5 +10,6 @@ module Admin
     get "/models/:name/:id", to: "models.show"
     get '/models/:name/:id/edit', to: 'models.edit'
     patch '/models/:name/:id', to: 'models.update'
+    get "/models/:name/:id/reload_show", to: "models.reload_show"
   end
 end
