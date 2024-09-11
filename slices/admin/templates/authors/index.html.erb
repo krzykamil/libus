@@ -1,0 +1,16 @@
+<div>
+	<div class="text-sm breadcrumbs">
+		<ul>
+			<li><a href="/admin" class="text-3xl">Models</a></li>
+			<li><a href="/admin/authors" class="text-3xl">Authors</a></li>
+		</ul>
+	</div>
+	<ul class="menu bg-base-200 w-56 rounded-box">
+		<div></div>
+		<ul>
+			<% model_objects.each do |model| %>
+				<li><a href="/admin/authors/<%= model.id %>"><%= model.id %>: <%= model.name %></a></li>
+			<% end %>
+		</ul>
+	</ul>
+</div>

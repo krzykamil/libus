@@ -6,10 +6,12 @@ module Admin
     get '/login', to: 'login.new', as: :login
     post "/sessions", to: "sessions.create"
     delete "/logout", to: "sessions.destroy"
-    get "/models/:name", to: "models.index"
-    get "/models/:name/:id", to: "models.show"
-    get '/models/:name/:id/edit', to: 'models.edit'
-    patch '/models/:name/:id', to: 'models.update'
-    get "/models/:name/:id/reload_show", to: "models.reload_show"
+    # get "/models/:name", to: "models.index"
+    # get "/models/:name/:id", to: "models.show"
+    # get '/models/:name/:id/edit', to: 'models.edit'
+    # patch '/models/:name/:id', to: 'models.update
+    # get "/models/:name/:id/reload_show", to: "models.reload_show"
+    get "/authors", to: "authors.index"
+    get "/authors/:id", to: "authors.show"
   end
 end
