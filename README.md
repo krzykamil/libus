@@ -6,7 +6,7 @@ ruby 3.2.2
 nodejs 21.6.2
 
 
-You will also need an .env file in root folder. 
+You will also need an .env file in root folder. Copy it from .env.test
 
 run:
 

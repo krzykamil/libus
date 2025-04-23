@@ -12,7 +12,7 @@ RSpec.describe 'ImageUploadSpec', :db, type: :request do
         patch "/books/#{book.id}", { id: book.id, book: { image: Rack::Test::UploadedFile.new("spec/fixtures/image.png") } }
 
         expect(JSON.parse(rom.relations[:books].first.image_data)["id"]).to be_a(String)
-        expect(last_response.status).to be(302)
+        expect(last_response.status).to eq(200)
       end
     end
   end

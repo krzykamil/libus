@@ -4,12 +4,12 @@ source "https://rubygems.org"
 
 ruby "3.2.2"
 
-gem "hanami", "~> 2.1"
-gem "hanami-router", "~> 2.1"
-gem "hanami-controller", "~> 2.1"
-gem "hanami-validations", "~> 2.1"
-gem "hanami-view", "~> 2.1"
-gem "hanami-assets", "~> 2.1"
+gem "hanami", "~> 2.2"
+gem "hanami-router", "~> 2.2"
+gem "hanami-controller", "~> 2.2"
+gem "hanami-validations", "~> 2.2"
+gem "hanami-view", "~> 2.2"
+gem "hanami-assets", "~> 2.2"
 
 gem "dry-types", "~> 1.0", ">= 1.6.1"
 gem "dry-effects"
@@ -26,6 +26,7 @@ gem "warden"
 gem "bcrypt"
 gem "shrine", "~> 3.0"
 gem "aws-sdk-s3", "~> 1.14"
+gem "zeitwerk", ">=2.7.1"
 
 group :development do
   gem "hanami-webconsole", "~> 2.1"

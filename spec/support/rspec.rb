@@ -4,6 +4,11 @@ RSpec.configure do |config|
   # Use the recommended non-monkey patched syntax.
   config.disable_monkey_patching!
 
+  config.include Warden::Test::Helpers
+
+  config.after(:each) do
+    Warden.test_reset!
+  end
   # Use and configure rspec-expectations.
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4.

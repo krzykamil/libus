@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require "hanami/rake_tasks"
-require "rom/sql/rake_task"
-require "bcrypt"
 require "hanami/setup"
 if ARGV[0] == "db:seed"
   require "rom-repository"
@@ -35,7 +33,7 @@ namespace :tailwind do
       "tailwindcss",
       "--input", "slices/admin/assets/css/tailwind.css",
       "--output", "slices/admin/assets/builds/tailwind.css",
-      "--minify",
+      "--minify", 
       "--watch"
     )
     system(
