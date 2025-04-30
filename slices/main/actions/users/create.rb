@@ -16,6 +16,7 @@ module Main
         end
 
         def handle(request, response)
+
           halt 422, {errors: request.params.errors}.to_json unless request.params.valid?
 
           if request.params[:password] != request.params[:password_confirmation]

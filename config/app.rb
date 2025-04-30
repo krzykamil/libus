@@ -3,6 +3,7 @@
 require "hanami"
 require "warden"
 require "hanami/middleware/body_parser"
+require "pry"
 module Libus
   class App < Hanami::App
 
@@ -15,13 +16,14 @@ module Libus
     }
     config.middleware.use Warden::Manager do |manager|
       manager.default_strategies :password
+      # binding.pry
       manager.failure_app =
         lambda do |env|
           Libus::Actions::AuthFailure::Show.new.call(env)
         end
     end
     config.shared_app_component_keys += ["redis", "db", "persistence.rom", "repositories.users",
-                                         "repositories.roles", "shrine", "repositories.books"]
+                                         "repositories.roles", "shrine", "repositories.books", "repositories.authors"]
     config.middleware.use Hanami::Middleware::BodyParser, :form
 
   end

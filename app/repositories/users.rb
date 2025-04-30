@@ -9,6 +9,10 @@ module Libus
         users.order(:name).to_a
       end
 
+      def details
+        users
+      end
+
       def admin_by_id(user_id)
         by_role("admin_user").by_pk(user_id).one
       end
