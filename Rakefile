@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 require "hanami/rake_tasks"
-require "rom/sql/rake_task"
-require "bcrypt"
 require "hanami/setup"
+
 if ARGV[0] == "db:seed"
   require "rom-repository"
   require "hanami/boot"
+else
+  require "rom/sql/rake_task"
+  require "bcrypt"
 end
 
 namespace :tailwind do
@@ -131,7 +133,6 @@ end
 namespace :db do
   desc "Seed base (users, roles, permissions)"
   task :seed do
-    binding.pry
     create_roles
     create_users
     create_permissions

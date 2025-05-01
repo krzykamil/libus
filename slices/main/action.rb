@@ -5,6 +5,10 @@ module Main
   class Action < Libus::Action
 
     def basic_user_logged?
+      if request.env["warden"].user.nil?
+        return false
+      end
+
       Libus::Services::Users::CheckLoggedIn.new(user: request.env['warden'].user, user_type: :basic_user).call.success?
     end
 

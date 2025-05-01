@@ -23,7 +23,8 @@ module Main
             request.env['warden'].authenticate!
             response.redirect "/"
           else
-            halt 401, "Unauthorized"
+            response.flash.next[:alert] = "Email or password are not correct"
+            response.redirect_to("/login")
           end
         end
       end

@@ -5,7 +5,6 @@ module Libus
     module AuthFailure
       class Show < Main::Action
         def handle(request, response)
-          binding.pry
           response.body = "STRANGER DANGER"
           response.status = 401
         end

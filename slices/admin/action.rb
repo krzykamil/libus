@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 module Admin
-  class Action < Libus::Actions::AuthenticatedAction::AdminUser
+  class Action < Libus::Actions
 
     def warden
       request.env['warden']

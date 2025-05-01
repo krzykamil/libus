@@ -6,7 +6,6 @@ RSpec.describe Libus::Repositories::Books, :db do
 
   context '#listing' do
     it 'returns all books' do
-      binding.pry
       expect(described_class.new.listing.first.to_h).to eq(dune.to_h)
     end
   end

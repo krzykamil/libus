@@ -16,7 +16,6 @@ module Libus
     }
     config.middleware.use Warden::Manager do |manager|
       manager.default_strategies :password
-      # binding.pry
       manager.failure_app =
         lambda do |env|
           Libus::Actions::AuthFailure::Show.new.call(env)
