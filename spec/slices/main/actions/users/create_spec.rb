@@ -1,16 +1,38 @@
 # frozen_string_literal: true
 
 RSpec.describe Main::Actions::Users::Create, :db do
-  it "works with the right params" do
-    params = {
-      email: "some@email.com",
-      name: "John Doe",
-      password: "password",
-      password_confirmation: "password"
-    }
+  let!(:role) { factory[:role, name: "basic_user"] }
 
-    response = subject.call(params)
-    expect(response).to be_successful
+  params = {
+    email: "some@email.com",
+    name: "John Doe",
+    password: "password",
+    password_confirmation: "password"
+  }
+  let(:user)    { factory[:user] }
+  let(:env)     { instance_double('env') }
+
+  let(:warden) do
+    instance_double('warden', user: user).tap do |w|
+      allow(w).to receive(:set_user)
+    end
+  end
+
+  before do
+    allow_any_instance_of(Hanami::Action::Request).to receive(:env).and_return(env)
+    allow(env).to receive(:[]).and_return(warden)
+  end
+
+  context "with right params" do
+    it "redirects to the home page" do
+      response = subject.call(params)
+      expect(response.status).to eq(302)
+    end
+
+    it "returns flash notice" do
+      response = subject.call(params)
+      expect(response.flash.next[:notice]).to eq("Welcome to Libus John Doe!")
+    end
   end
 
   context "with bad params" do

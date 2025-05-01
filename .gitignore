@@ -1,9 +1,11 @@
-.env
+.env.development
+.env.test
 log/*
 public/
 node_modules/
 spec/examples.txt
 /app/assets/builds
 slices/main/assets/builds/tailwind.css
+slices/admin/assets/builds/tailwind.css
 .idea
 yarn.lock

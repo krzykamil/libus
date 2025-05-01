@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 
-RSpec.describe Main::Repositories::Books, :db do
+RSpec.describe Libus::Repositories::Books, :db do
   let!(:dune) { factory[:book, title: "Dune", isbn_13: "9780441172719"] }
 
   context '#listing' do
     it 'returns all books' do
-      expect(described_class.new.listing).to eq([dune])
+      expect(described_class.new.listing.first.to_h).to eq(dune.to_h)
     end
   end
 

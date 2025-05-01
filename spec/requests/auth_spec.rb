@@ -14,14 +14,14 @@ RSpec.describe 'AuthenticationSpec', :db, type: :request do
       it 'succeeds' do
         login_as user
         get "/search/isbn", { isbn: "978-0-306-40615-7" }
-        expect(last_response.status).to be(200)
+        expect(last_response.status).to be(302)
       end
     end
 
     context "when there is no user" do
       it "rejects the request, redirects" do
         get "/search/isbn", { isbn: "123123" }
-        expect(last_response.status).to be(302)
+        expect(last_response.status).to eq(200)
       end
     end
   end

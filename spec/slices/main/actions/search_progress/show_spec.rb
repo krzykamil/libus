@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Main::Actions::SearchProgress::Show do
-  let(:params) { Hash[] }
+  let(:params) { { isbn: { identifier: 3 } } }
 
   it "works" do
     response = subject.call(params)

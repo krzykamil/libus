@@ -3,9 +3,10 @@
 require "hanami"
 require "warden"
 require "hanami/middleware/body_parser"
-
+require "pry"
 module Libus
   class App < Hanami::App
+
     config.middleware.use Rack::MethodOverride
     config.logger.stream = StringIO.new
     config.actions.sessions = :cookie, {
@@ -20,7 +21,8 @@ module Libus
           Libus::Actions::AuthFailure::Show.new.call(env)
         end
     end
-    config.shared_app_component_keys += ["redis", "db", "persistence.rom", "shrine"]
+    config.shared_app_component_keys += ["redis", "db", "persistence.rom", "repositories.users",
+                                         "repositories.roles", "shrine", "repositories.books", "repositories.authors"]
     config.middleware.use Hanami::Middleware::BodyParser, :form
 
   end
